@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --app-color-accent: #A445ED;
+  --app-color-error: #FF5252;
+  --app-color-black-primary: #050505;
+  --app-color-black-secondary: #1F1F1F;
+  --app-color-black-tertiary: #2D2D2D;
+  --app-color-black-light: #3A3A3A;
+  --app-color-grey-dark: #757575;
+  --app-color-grey-medium: #E9E9E9;
+  --app-color-grey-light: #F4F4F4;
+  --app-color-white: #FFFFF;
+
+  font-family: 'Aliquam';
+}
