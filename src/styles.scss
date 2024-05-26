@@ -10,5 +10,9 @@
   --app-color-grey-light: #F4F4F4;
   --app-color-white: #FFFFF;
 
-  font-family: 'Aliquam';
+  --app-font-inter: "inter";
+  --app-font-lora: "lora";
+  --app-font-inconsolata: "inconsolata";
+
+  font-family: var(--app-font-inter);
 }
