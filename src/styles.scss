@@ -15,4 +15,37 @@
   --app-font-inconsolata: "inconsolata";
 
   font-family: var(--app-font-inter);
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+}
+
+html {
+  font-size: 100%; /* 1rem = 16px */
+  line-height: 1.15; /* Adjust line height for better readability */
+  -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS */
+}
+
+body {
+  &.sans-serif * {
+    font-family: 'inconsolata', sans-serif
+  }
+
+  &.serif * {
+    font-family: 'lora', serif
+  }
+
+  &.mono * {
+    font-family: 'inter', monospace
+  }
+}
+
+input, button, textarea, select {
+  font: inherit;
 }

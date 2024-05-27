@@ -1,0 +1,31 @@
+:host {
+  input {
+    background-color: var(--app-color-grey-light);
+    border-radius: 16px;
+    border: 1px solid var(--app-color-grey-light);
+    height: 64px;
+    width: 100%;
+    max-width: 736px;
+    padding:0 24px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--app-color-black-tertiary);
+    margin: 0 auto;
+    display: block;
+
+    &::placeholder {
+      opacity: .25;
+    }
+
+    &:focus {
+      outline-color: var(--app-color-accent);
+      outline-width: 1px;
+    }
+  }
+
+  &.has-error {
+    input {
+      border-color: var(--app-color-error);
+    }
+  }
+}
