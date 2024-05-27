@@ -1,4 +1,5 @@
 :host {
+  position: relative;
   input {
     background-color: var(--app-color-grey-light);
     border-radius: 16px;
@@ -21,6 +22,14 @@
       outline-color: var(--app-color-accent);
       outline-width: 1px;
     }
+  }
+
+  .search {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    display: inline-flex;
   }
 
   &.has-error {
