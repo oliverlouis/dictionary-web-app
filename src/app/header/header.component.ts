@@ -21,12 +21,17 @@ export class HeaderComponent {
 
   public toggleDarkMode(): void {
     this.darkMode = !this.darkMode;
+    if (this.darkMode) {
+      this.document.body.classList.add('dark-mode');
+    } else {
+      this.document.body.classList.remove('dark-mode');
+    }
   }
 
   public onFontChange(event: Event): void {
     const selectedFont = (event.target as HTMLSelectElement).value;
     if (this.document.body.classList.contains(selectedFont)) return;
-    this.document.body.className = ''
+    this.document.body.className = this.document.body.classList.contains('dark-mode') ? 'dark-mode' : ''
     this.document.body.classList.add(selectedFont);
   }
 

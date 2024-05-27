@@ -8,7 +8,7 @@
   --app-color-grey-dark: #757575;
   --app-color-grey-medium: #E9E9E9;
   --app-color-grey-light: #F4F4F4;
-  --app-color-white: #FFFFF;
+  --app-color-white: #FFFFFF;
 
   --app-font-inter: "inter";
   --app-font-lora: "lora";
@@ -33,6 +33,7 @@ html {
 }
 
 body {
+  transition: all 0.3s;
   &.sans-serif * {
     font-family: 'inconsolata', sans-serif
   }
@@ -43,6 +44,12 @@ body {
 
   &.mono * {
     font-family: 'inter', monospace
+  }
+
+  &.dark-mode {
+    background-color: var(--app-color-black-primary);
+    color: var(--app-color-white);
+    --app-color-black-tertiary: var(--app-color-white);
   }
 }
 
