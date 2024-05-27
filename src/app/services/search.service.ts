@@ -7,7 +7,7 @@ import {API_ENDPOINT_TOKEN} from "../tokens/api-endpoint.token";
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService {
+export class SearchService {
   constructor(
     private http: HttpClient,
     @Inject(API_ENDPOINT_TOKEN) private apiEndpoint: InjectionToken<string>
