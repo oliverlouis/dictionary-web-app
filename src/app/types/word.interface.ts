@@ -1,26 +1,27 @@
 export interface Word {
-  license: {name: string, url: string};
-  meanings: Meaning[];
-  phonetics: Phonetic[];
-  sourceUrls: string[];
-  word: string;
+  license: { name: string; url: string }
+  meanings: Meaning[]
+  phonetic: string
+  phonetics: Phonetic[]
+  sourceUrls: string[]
+  word: string
 }
 
 export interface Meaning {
-  definitions: Definition[];
-  antonyms: string[];
-  partOfSpeech: string;
+  definitions: Definition[]
+  antonyms: string[]
+  partOfSpeech: string
   synonyms: string[]
 }
 
 export interface Definition {
-  antonyms: string[];
+  antonyms: string[]
   synonyms: string[]
-  definition: string;
+  definition: string
 }
 
 export interface Phonetic {
-  audio: string;
-  license: {name: string, url: string};
-  sourceUrl: string;
+  audio: string
+  license: { name: string; url: string }
+  sourceUrl: string
 }

@@ -1,0 +1,9 @@
+<ng-container *ngIf="result$ | async as result">
+  <h1 class="heading">{{ result.word }}</h1>
+  <span class="phonetic">{{ result.phonetic }}</span>
+</ng-container>
+<pre>{{ result$ | async | json }}</pre>
+
+
+
+
