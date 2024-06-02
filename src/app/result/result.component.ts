@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
 import { SearchService } from '../services/search.service'
 import { AsyncPipe, JsonPipe, NgFor, NgIf } from '@angular/common'
-import { debounce, map, Observable, tap } from 'rxjs'
+import { map, Observable } from 'rxjs'
 import { Word } from '../types/word.interface'
+import { HttpErrorResponse } from '@angular/common/http'
 
 @Component({
   selector: 'dwa-result',
@@ -14,9 +15,10 @@ import { Word } from '../types/word.interface'
 export class ResultComponent {
   protected result$: Observable<Word> = this.searchService.searchResult$.pipe(
     map(res => res[0] as Word),
-    tap(res => console.log(res)),
   )
-  protected readonly debounce = debounce
+
+  protected error$: Observable<HttpErrorResponse | null> =
+    this.searchService.searchError$
 
   constructor(private searchService: SearchService) {}
 }

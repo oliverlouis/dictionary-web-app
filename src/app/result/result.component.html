@@ -36,6 +36,16 @@
   </div>
 </ng-container>
 
+<ng-container *ngIf="error$ | async as error">
+  <div class="error-container">
+    <div class="emoji">
+      <p>😕</p>
+    </div>
+    <h3>{{ error.error.title }}</h3>
+    <p class="error-message">{{ error.error.message + ' ' + error.error.resolution }}</p>
+  </div>
+</ng-container>
+
 
 
 

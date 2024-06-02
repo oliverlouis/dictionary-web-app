@@ -9,8 +9,8 @@
 .phonetic {
   color: var(--app-color-accent);
   font-size: 24px;
-  font-style: italic;;
-  font-family: sans-serif;
+  font-family: 'inter', sans-serif;
+  letter-spacing: 1px;
 }
 
 .part-of-speech-container {
@@ -112,6 +112,30 @@
       top: 50%;
       transform: translateY(-50%);
     }
+  }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .emoji {
+    font-size: 64px;
+  }
+
+  h3 {
+    margin-top: 44px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--app-color-black-tertiary);
+  }
+
+  .error-message {
+    font-size: 18px;
+    margin-top: 24px;
+    color: var(--app-color-grey-dark);
   }
 }
 

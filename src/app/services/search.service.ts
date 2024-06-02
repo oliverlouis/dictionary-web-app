@@ -5,8 +5,8 @@ import {
   Injectable,
   InjectionToken,
 } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
-import { BehaviorSubject, tap } from 'rxjs'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http'
+import { BehaviorSubject, catchError, Subject, tap } from 'rxjs'
 import { Word } from '../types/word.interface'
 import { API_ENDPOINT_TOKEN } from '../tokens/api-endpoint.token'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
@@ -17,6 +17,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 export class SearchService {
   public searchResultSubject = new BehaviorSubject<Word[]>([])
   public searchResult$ = this.searchResultSubject.asObservable()
+
+  public searchErrorSubject = new Subject<HttpErrorResponse | null>()
+  public searchError$ = this.searchErrorSubject.asObservable()
 
   private destroyRef = inject(DestroyRef)
 
@@ -30,7 +33,15 @@ export class SearchService {
       .get<Word[]>(`${this.apiEndpoint}${searchTerm}`)
       .pipe(
         takeUntilDestroyed(this.destroyRef),
-        tap(definition => this.searchResultSubject.next(definition)),
+        tap(definition => {
+          this.searchResultSubject.next(definition)
+          this.searchErrorSubject.next(null)
+        }),
+        catchError(error => {
+          this.searchErrorSubject.next(error)
+          console.log(error)
+          return error
+        }),
       )
       .subscribe()
   }
