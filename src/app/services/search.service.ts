@@ -39,7 +39,6 @@ export class SearchService {
         }),
         catchError(error => {
           this.searchErrorSubject.next(error)
-          console.log(error)
           return error
         }),
       )
