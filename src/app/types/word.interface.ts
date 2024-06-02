@@ -18,6 +18,7 @@ export interface Definition {
   antonyms: string[]
   synonyms: string[]
   definition: string
+  example?: string
 }
 
 export interface Phonetic {

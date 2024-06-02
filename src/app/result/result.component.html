@@ -1,11 +1,41 @@
 <ng-container *ngIf="result$ | async as result">
-  <h1 class="heading">{{ result.word }}</h1>
-  <span class="phonetic">{{ result.phonetic }}</span>
-  <br>
-  <br>
-  <p>{{ result.meanings[2].definitions[0].definition }}</p>
+  <div class="result">
+    <h1 class="heading">{{ result.word }}</h1>
+    <p class="phonetic">{{ result.phonetic }}</p>
+    @if ((result$ | async)!.meanings) {
+      @for (meaning of (result$ | async)!.meanings; track meaning) {
+        <div class="part-of-speech-container">
+          <p class="part-of-speech">{{ meaning.partOfSpeech }}</p>
+        </div>
+        <p class="meaning">Meaning</p>
+        <div class="meaning-container">
+          @if (meaning.definitions.length > 0) {
+            <ul class="meanings-list">
+              @for (definition of meaning.definitions; track definition) {
+                <li>{{ definition.definition }}</li>
+                @if (definition.example) {
+                  <p class="example">"{{ definition.example }}"</p>
+                }
+              }
+            </ul>
+          }
+          @if (meaning.synonyms.length > 0) {
+            <span class="synonyms-heading">Synonyms</span>
+            @for (synonym of meaning.synonyms.slice(0, 4); track synonym) {
+              <span class="synonym">{{ synonym }}</span>
+            }
+          }
+        </div>
+      }
+    }
+    <div class="divider"></div>
+    <div class="source">
+      <span>Source</span>
+      <a [href]="result.sourceUrls[0]">{{ result.sourceUrls[0] }}</a>
+    </div>
+  </div>
 </ng-container>
-<pre>{{ result$ | async | json }}</pre>
+
 
 
 

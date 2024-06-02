@@ -1,5 +1,6 @@
 :host {
   position: relative;
+
   input {
     background-color: var(--app-color-grey-light);
     border-radius: 16px;
@@ -28,14 +29,28 @@
     position: absolute;
     top: 50%;
     right: 24px;
-    transform: translateY(-50%);
+    transform: translateY(-110%);
     display: inline-flex;
+    cursor: pointer;
   }
 
   &.has-error {
     input {
       border-color: var(--app-color-error);
+
+      &:focus {
+        outline-color: var(--app-color-error);
+        outline-width: 1px;
+      }
     }
+  }
+
+  .error-container {
+    color: var(--app-color-error);
+    font-family: sans-serif;
+    font-size: 18px;
+    height: 25px;
+    padding: 8px 0;
   }
 }
 
