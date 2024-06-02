@@ -15,10 +15,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
   providedIn: 'root',
 })
 export class SearchService {
-  public searchResultSubject = new BehaviorSubject<Word[]>([])
+  private searchResultSubject = new BehaviorSubject<Word[]>([])
   public searchResult$ = this.searchResultSubject.asObservable()
 
-  public searchErrorSubject = new Subject<HttpErrorResponse | null>()
+  private searchErrorSubject = new Subject<HttpErrorResponse | null>()
   public searchError$ = this.searchErrorSubject.asObservable()
 
   private destroyRef = inject(DestroyRef)
