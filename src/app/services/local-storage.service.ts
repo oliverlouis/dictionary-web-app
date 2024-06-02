@@ -27,7 +27,9 @@ export class LocalStorageService {
 
   private getFont() {
     const font = localStorage.getItem('font') as Font
-    this.fontSubject.next(font)
+    if (font) {
+      this.fontSubject.next(font)
+    }
   }
 
   private getMode() {
